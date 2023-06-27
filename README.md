@@ -9,6 +9,7 @@
 - Anaconda (23.1.0)
 - Python (3.10)
 - cdo
+- acccmip6
 
 ## <font color=#20B2AA face="Javanese Text" size=4> **1. Models** </font>
 
