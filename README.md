@@ -1,5 +1,5 @@
 
-# <center> <font color=#FF9797 face="Segoe UI Black" size=5> **Uniformly concat and regrid monthly CMIP6 historical/LFMIP nc files using CDO** </font> </center>
+# <center> <font color=#FF9797 face="Segoe UI Black" size=5> **Uniformly aggregate and regrid monthly CMIP6 historical/LFMIP nc files using CDO** </font> </center>
 
 > <font color=#20B2AA face="Javanese Text" size=4>**AIM: generate monthly $2\degree \times 2\degree$ nc files merged in time series (198201-201412) for each model**</font>
 
