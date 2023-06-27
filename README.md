@@ -1,7 +1,7 @@
 
 # <center> <font color=#FF9797 face="Segoe UI Black" size=5> **Uniformly concat and regrid monthly CMIP6 historical/LFMIP nc files using CDO** </font> </center>
 
-> <font color=#20B2AA face="Javanese Text" size=4>**AIM: generate monthly $2\degree \times 2\degree$ nc files concatted in time series for each model**</font>
+> <font color=#20B2AA face="Javanese Text" size=4>**AIM: generate monthly $2\degree \times 2\degree$ nc files merged in time series (198201-201412) for each model**</font>
 
 ## <font color=#20B2AA face="Javanese Text" size=4> **0. Environment** </font>
 
@@ -18,7 +18,7 @@
 |CMCC-ESM2|gn|192 $\times$ 288(0.94 $\times$ 1.25)|1850-2014|
 |CNRM-CM6-1|gr|128 $\times$ 256(1.39 $\times$ 1.406)|1850-2014|
 |EC-Earth3|gr|256 $\times$ 512(0.69 $\times$ 0.7031)|yearly|
-|IPSL-CM6A-LR|IPSL|gr|143 $\times$ 144(1.26761 $\times$ 2.5)|1850-2014|
+|IPSL-CM6A-LR|gr|143 $\times$ 144(1.26761 $\times$ 2.5)|1850-2014|
 |MIROC6|gn|128 $\times$ 256(1.39 $\times$ 1.406)|1850-2014|
 |MPI-ESM1-2-LR|gn|96 $\times$ 192(1.85 $\times$ 1.875)|20-year-ly|
 ||||||
@@ -28,8 +28,8 @@
 1.search
 
 ```
-acccmip6 -o S -v evspsbl -f mon -e amip-lfmip-pdLC -m CESM2,CMCC-ESM2,CNRM-CM6-1,IPSL-CM6A-LR,MIROC6,MPI-ESM1-2-LR -skip 1f1
-acccmip6 -o S -v evspsbl -e historical -m CESM2,CMCC-ESM2,CNRM-CM6-1,IPSL-CM6A-LR,MIROC6,MPI-ESM1-2-LR -rlzn 1
+acccmip6 -o S -v evspsbl,mrso,tas,pr,hfls -f mon -e amip-lfmip-pdLC -m CESM2,CMCC-ESM2,CNRM-CM6-1,IPSL-CM6A-LR,MIROC6,MPI-ESM1-2-LR -skip 1f1
+acccmip6 -o S -v evspsbl,mrso,tas,pr,hfls -e historical -m CESM2,CMCC-ESM2,CNRM-CM6-1,IPSL-CM6A-LR,MIROC6,MPI-ESM1-2-LR -rlzn 1
 ```
 2.download
 
@@ -87,11 +87,11 @@ conda install -c "conda-forge/label/gcc7" python-cdo
 
 #### 1. **CMIP6 historical**
 
-    [cmip6hist_info.csv]()
+    [cmip6hist_file_info.csv](../CMIP6PROJECT/outputs_info/cmip6hist_file_info.csv)
 
 #### 2. **LFMIP**
 
-    [cmip6hist_file_info.csv]()
+    [cmip6hist_file_info.csv](../CMIP6PROJECT/outputs_info/amip-lfmip-pdLC_file_info.csv)
 
 - mrso nc files contain null values except for `CMCC-ESM2` model, in which the missing values are assigned with zero
 - other variables have no null values across the globe, as they are atmospheric variables
@@ -102,7 +102,7 @@ conda install -c "conda-forge/label/gcc7" python-cdo
 - This means the data processing procedure of mrso nc files of `CMCC-ESM2` model needs to be performed again, which can be referred to [2.3 Example 1](#u2)
 
 #### <div id='u3'>3 batch coding in python</div>
-    [print_nc_info.py]()
+    [print_nc_info.py](../CMIP6PROJECT/python_scripts/print_nc_info.py)
 
 ### <font size=4> 3.3. *processing* </font>
 
@@ -115,9 +115,9 @@ conda install -c "conda-forge/label/gcc7" python-cdo
 
 - see `bash_scripts/cdo_mrso_example.sh`
 
-> Example 2. evspsbl</p>
+> Example 2. evspsbl </p>
 
-#### 1. <div id='u2'>MIROC6: (only for amip-lfmip-pdLC)<div>
+#### <div id='u2'> 1. MIROC6: (only for amip-lfmip-pdLC)<div>
 
  - 1. merge seperate nc files for a large time range
  - 2. select year I wanted
@@ -183,9 +183,9 @@ conda install -c "conda-forge/label/gcc7" python-cdo
 
 python coding same as [batch coding in python](#u3)
 
-[process_historical_file_info.csv]()
+[process_historical_file_info.csv](../CMIP6PROJECT/outputs_info/process_historical_file_info.csv)
 
-[process_amip-lfmip-pdLC_file_info.csv]()
+[process_amip-lfmip-pdLC_file_info.csv](../CMIP6PROJECT/outputs_info/process_amip-lfmip-pdLC_file_info.csv)
 
 
 ## <font color=#20B2AA face="Javanese Text" size=4> **4. about missing values in cdo** </font>
