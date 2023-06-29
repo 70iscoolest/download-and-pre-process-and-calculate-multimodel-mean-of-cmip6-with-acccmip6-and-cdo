@@ -1,5 +1,5 @@
 
-# <center> <font color=#FF9797 face="Segoe UI Black" size=5> **Uniformly concat and regrid monthly CMIP6 historical/LFMIP nc files using CDO** </font> </center>
+# <center> <font color=#FF9797 face="Segoe UI Black" size=5> **Uniformly aggregate and regrid monthly CMIP6 historical/LFMIP nc files using CDO** </font> </center>
 
 > <font color=#20B2AA face="Javanese Text" size=4>**AIM: generate monthly $2\degree \times 2\degree$ nc files merged in time series (198201-201412) for each model**</font>
 
@@ -9,6 +9,7 @@
 - Anaconda (23.1.0)
 - Python (3.10)
 - cdo
+- acccmip6
 
 ## <font color=#20B2AA face="Javanese Text" size=4> **1. Models** </font>
 
@@ -99,7 +100,7 @@ conda install -c "conda-forge/label/gcc7" python-cdo
 > however, I don't feel like it's a problem, as the cdo deals well with null values, and only terrestrial grids would be used in my analysis, there is minor interpolation difference between nc files with null values and those with no null values
 
 - it's necessary to first assign zero values in mrso nc files of `CMCC-ESM2` model with null values, or there can be errors when interpolation is performing across multiple grids. 
-- This means the data processing procedure of mrso nc files of `CMCC-ESM2` model needs to be performed again, which can be referred to [2.3 Example 1](#u2)
+- This means the data processing procedure of mrso nc files of `CMCC-ESM2` model needs to be performed again, which can be referred to [3.3 Example 1](#u2)
 
 #### <div id='u3'>3 batch coding in python</div>
     [print_nc_info.py](../CMIP6PROJECT/python_scripts/print_nc_info.py)
@@ -192,10 +193,10 @@ python coding same as [batch coding in python](#u3)
 
 > how does cdo cooperate with missing values?
 
-`Missing values are data points that are missing or invalid. Such data points are treated in a different way
+Missing values are data points that are missing or invalid. Such data points are treated in a different way
 than valid data. Most CDO operators can handle missing values in a smart way. But if the missing value
 is within the range of valid data, it can lead to incorrect results. This applies to all arithmetic operations,
-but especially to logical operations when the missing value is 0 or 1.`
+but especially to logical operations when the missing value is 0 or 1.
 
 - so there is a need to assign 0 in mrso nc files with nan
 
