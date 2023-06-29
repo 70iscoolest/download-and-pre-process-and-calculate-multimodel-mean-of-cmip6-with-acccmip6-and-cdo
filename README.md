@@ -1,7 +1,6 @@
-# download-and-pre-process-and-calculate-multimodel-mean-of-cmip6-with-acccmip6-and-cdo
 
 
-# <center> <font color=#FF9797 face="Segoe UI Black" size=5> **Calculate multimodel mean across 7 models of CMIP6 historical/LFMIP and visualization** </font> </center>
+# <center> <font color=#FF9797 face="Segoe UI Black" size=5> **Calculate multimodel mean across 7 models of CMIP6 historical/LFMIP** </font> </center>
 
 ## <font color=#20B2AA face="Javanese Text" size=4> **0. Environment** </font>
 
