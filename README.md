@@ -39,11 +39,11 @@
 the processed nc files are stored according to each variable and each model
 - `../CMIP6PROJECT/DATA_process/LFMIP-pdLC/`
 
-![](.DATA_analysis/pics/file%20structure1.png)
+![](./DATA_analysis/pics/file%20structure1.png)
 
 - `../CMIP6PROJECT/DATA_process/LFMIP-pdLC/evspsbl/`
 
-![](.DATA_analysis/pics/file%20structure2.png)
+![](./DATA_analysis/pics/file%20structure2.png)
 
 run a bash
 
@@ -60,18 +60,18 @@ done
 
 - `../CMIP6PROJECT/DATA_process/LFMIP-pdLC/evspsbl/split/`
 
-![](.DATA_analysis/pics/file%20structure3.png)
+![](./DATA_analysis/pics/file%20structure3.png)
 
 - `../CMIP6PROJECT/DATA_process/LFMIP-pdLC/evspsbl/split/CESM2/`
 
-![](.DATA_analysis/pics/file%20structure4.png)
+![](./DATA_analysis/pics/file%20structure4.png)
 
 ## <font color=#20B2AA face="Javanese Text" size=4> **4. Calculate multiple model mean for each variable**</font>
 
 - see `../scipts/multimodel_mean.py`
 - generate mean nc files of each month for each variable 
 
-![](.DATA_analysis/pics/file%20structure5.png)
+![](./DATA_analysis/pics/file%20structure5.png)
 
 ## <font color=#20B2AA face="Javanese Text" size=4> **5. Merge these mean files into one single nc files with time series**</font>
 
@@ -85,5 +85,5 @@ done
 ```
 - finally generate multimodel mean nc files for each variable
 
-![](.DATA_analysis/pics/file%20structure6.png)
+![](./DATA_analysis/pics/file%20structure6.png)
 
